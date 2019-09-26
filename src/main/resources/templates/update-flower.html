@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/flowers/update/{id}(id=${flower.id})}" th:object="${flower}" method="post">
+    <div>
+        ID: <input type="text" th:field="*{id}" readonly style="width: 20px;text-align: center">
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+    </div>
+    <div>
+       Update Name: <input type="text" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div>
+      Update Description : <input type="text" th:field="*{description}">
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+    </div>
+    <div>
+       Update Price : <input type="text" th:field="*{price}">
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+    </div>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
